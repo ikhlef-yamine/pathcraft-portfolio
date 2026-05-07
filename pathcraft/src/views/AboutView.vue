@@ -11,7 +11,7 @@
         <p>
           Mon parcours commence en Algérie avec un <strong>Bac Scientifique</strong>,
           puis une Licence en <strong>Biotechnologie Microbienne</strong> à l'Université
-          Moulay Mameri. J'analysais des organismes vivants, leurs interactions,
+          Mouloud Mameri. J'analysais des organismes vivants, leurs interactions,
           leurs systèmes — une façon de penser naturellement transposée à l'informatique.
         </p>
         <p>

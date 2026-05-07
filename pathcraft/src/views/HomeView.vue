@@ -13,11 +13,6 @@
         l'informatique avec l'envie de comprendre les systèmes complexes — biologiques ou numériques.
         Aujourd'hui en Master <strong>Architecte de Systèmes d'Information</strong> à l'ETNA.
       </p>
-      <div class="hero-ctas fade-up d4">
-        <router-link to="/projects" class="btn-primary">Voir mes projets</router-link>
-        <a href="#contact-section" class="btn-outline">Me contacter</a>
-        <a href="https://github.com/ikhlef-yamine/" target="_blank" class="btn-outline">GitHub ↗</a>
-      </div>
     </section>
 
     <!-- Quick preview cards -->
