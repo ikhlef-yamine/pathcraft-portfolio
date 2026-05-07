@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ light: isLight }">
+  <div >
     <!-- Custom cursor -->
     <div class="cursor" :style="cursorStyle" />
     <div class="cursor-ring" :style="ringStyle" />
@@ -42,10 +42,12 @@ export default {
     return { isLight: false }
   },
 
-  methods: {
-    toggleTheme() {
-      this.isLight = !this.isLight
-    }
+ methods: {
+  toggleTheme() {
+    this.isLight = !this.isLight
+    document.body.classList.toggle('light', this.isLight)
+  }
+
   }
 }
 </script>

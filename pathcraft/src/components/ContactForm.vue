@@ -78,13 +78,25 @@ export default {
       return !Object.values(this.errors).some(Boolean)
     },
 
-    handleSubmit() {
-      if (!this.validate()) return
+    async handleSubmit() {
+  if (!this.validate()) return
 
-      this.submitted = true
-      this.form = { name: '', email: '', message: '' }
-      setTimeout(() => { this.submitted = false }, 5000)
-    }
+  const response = await fetch('https://formspree.io/f/xjglozqz', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      name:    this.form.name,
+      email:   this.form.email,
+      message: this.form.message
+    })
+  })
+
+  if (response.ok) {
+    this.submitted = true
+    this.form = { name: '', email: '', message: '' }
+    setTimeout(() => { this.submitted = false }, 5000)
+  }
+}
   }
 }
 </script>
