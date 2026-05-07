@@ -76,6 +76,13 @@ export default {
   transition: transform 0.18s ease, width 0.2s, height 0.2s;
 }
 
+@media (max-width: 768px) {
+  .cursor,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
 /* DNA Canvas */
 .dna-canvas {
   position: fixed;

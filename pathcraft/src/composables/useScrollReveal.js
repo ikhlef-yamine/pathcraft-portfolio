@@ -5,6 +5,17 @@ import { onMounted, onUnmounted } from 'vue'
 
 export function useScrollReveal(selector = '.reveal') {
   let observer = null
+  let mutationObserver = null
+  const observedElements = new WeakSet()
+
+  const observeRevealElements = () => {
+    document.querySelectorAll(selector).forEach(el => {
+      if (!observedElements.has(el)) {
+        observer.observe(el)
+        observedElements.add(el)
+      }
+    })
+  }
 
   onMounted(() => {
     observer = new IntersectionObserver(
@@ -18,10 +29,17 @@ export function useScrollReveal(selector = '.reveal') {
       { threshold: 0.1 }
     )
 
-    document.querySelectorAll(selector).forEach(el => observer.observe(el))
+    observeRevealElements()
+
+    mutationObserver = new MutationObserver(() => {
+      observeRevealElements()
+    })
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true })
   })
 
   onUnmounted(() => {
     if (observer) observer.disconnect()
+    if (mutationObserver) mutationObserver.disconnect()
   })
 }

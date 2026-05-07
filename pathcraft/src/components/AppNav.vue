@@ -3,7 +3,7 @@
     <router-link to="/" class="nav-logo">YI://portfolio</router-link>
 
     <ul class="nav-links">
-      <li v-for="link in navLinks" :key="link.to">
+      <li v-for="link in navLinks" :key="link.key">
         <router-link :to="link.to" class="nav-link">{{ link.label }}</router-link>
       </li>
     </ul>
@@ -26,10 +26,10 @@ export default {
     return {
       isScrolled: false,
       navLinks: [
-        { to: '/',        label: 'accueil'  },
-        { to: '/about',   label: 'à propos' },
-        { to: '/projects',label: 'projets'  },
-        { to: '/#contact',label: 'contact'  }
+        { key: 'home',     to: '/',                                      label: 'accueil'  },
+        { key: 'about',    to: '/about',                                 label: 'à propos' },
+        { key: 'projects', to: '/projects',                              label: 'projets'  },
+        { key: 'contact',  to: { path: '/', hash: '#contact-section' },   label: 'contact'  }
       ]
     }
   },

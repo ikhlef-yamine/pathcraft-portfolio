@@ -40,22 +40,50 @@ export function useCustomCursor() {
     ringStyle.height = '36px'
   }
 
-  onMounted(() => {
-    window.addEventListener('mousemove', onMouseMove)
-    animateRing()
+  function onInteractiveHover(e) {
+    if (e.target.closest('a, button, .project-card, .skill-card')) onEnterInteractive()
+  }
 
-    // Delegate hover to interactive elements
-    document.addEventListener('mouseover', e => {
-      if (e.target.closest('a, button, .project-card, .skill-card')) onEnterInteractive()
-    })
-    document.addEventListener('mouseout', e => {
-      if (e.target.closest('a, button, .project-card, .skill-card')) onLeaveInteractive()
-    })
+  function onInteractiveLeave(e) {
+    if (e.target.closest('a, button, .project-card, .skill-card')) onLeaveInteractive()
+  }
+
+  function activateCursor() {
+    if (animId) return
+    window.addEventListener('mousemove', onMouseMove)
+    document.addEventListener('mouseover', onInteractiveHover)
+    document.addEventListener('mouseout', onInteractiveLeave)
+    animateRing()
+  }
+
+  function deactivateCursor() {
+    window.removeEventListener('mousemove', onMouseMove)
+    document.removeEventListener('mouseover', onInteractiveHover)
+    document.removeEventListener('mouseout', onInteractiveLeave)
+    if (animId) {
+      cancelAnimationFrame(animId)
+      animId = null
+    }
+  }
+
+  onMounted(() => {
+    const mediaQuery = window.matchMedia('(min-width: 769px)')
+
+    function handleMediaChange(event) {
+      if (event.matches) activateCursor()
+      else deactivateCursor()
+    }
+
+    if (mediaQuery.matches) activateCursor()
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleMediaChange)
+    } else {
+      mediaQuery.addListener(handleMediaChange)
+    }
   })
 
   onUnmounted(() => {
-    window.removeEventListener('mousemove', onMouseMove)
-    if (animId) cancelAnimationFrame(animId)
+    deactivateCursor()
   })
 
   return { cursorStyle, ringStyle }
