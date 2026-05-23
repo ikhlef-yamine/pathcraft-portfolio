@@ -47,18 +47,18 @@ export const projects = [
   {
     id: 'etnair',
     title: 'ETNAir — Plateforme de location',
-    status: 'soon',
-    statusLabel: 'Bientôt — Groupe',
-    desc: 'Projet de groupe : API robuste Node.js + PostgreSQL, frontend moderne, déploiement Docker/Kubernetes. Rôle Dev Full-Stack & Infrastructure.',
+    status: 'wip',
+    statusLabel: 'En cours — Groupe',
+    desc: 'Projet de groupe : frontend Vue, backend Prisma + PostgreSQL, déploiement Docker et Kubernetes. Rôle Dev Full-Stack & Infrastructure.',
     stack: [
-      { label: 'Node.js',     type: 'bio'  },
+      { label: 'Vue 3',       type: 'tech' },
+      { label: 'Prisma',      type: 'tech' },
       { label: 'PostgreSQL',  type: 'bio'  },
-      { label: 'React',       type: 'tech' },
-      { label: 'Tailwind',    type: 'tech' },
+      { label: 'Node.js',     type: 'bio'  },
       { label: 'Docker',      type: 'gray' },
       { label: 'Kubernetes',  type: 'gray' }
     ],
-    link: null
+    link: 'https://github.com/Kentonnnn/ETNAir'
   },
   {
     id: 'datascience',

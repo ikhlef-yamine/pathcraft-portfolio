@@ -1,6 +1,6 @@
 <template>
   <footer class="app-footer">
-    <p>© 2026 Yamine IKHLEF — Fait avec <span class="accent">♥</span> et trop de café</p>
+    <p>© 2026 Yamine IKHLEF — Fait avec <span class="accent">♥</span> et beaucoup de café</p>
     <p>Bio → Code → <span class="accent">∞</span></p>
   </footer>
 </template>

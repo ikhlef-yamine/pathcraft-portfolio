@@ -120,7 +120,7 @@ export default {
 
       timeline: [
         { year: '2018',        title: 'Baccalauréat Scientifique',            sub: 'Lycée Ain Zaouia, Algérie',               type: 'bio'   },
-        { year: '2018 — 2022', title: 'Licence Biotechnologie Microbienne',   sub: 'Université Moulay Mameri, Tizi-Ouzou',    type: 'bio'   },
+        { year: '2018 — 2022', title: 'Licence Biotechnologie Microbienne',   sub: 'Université Mouloud Mammeri, Tizi-Ouzou',   type: 'bio'   },
         { year: '2022 — 2025', title: 'Bac+3 Informatique & Technologies',    sub: 'Institut Golden Collar, Paris',           type: 'tech'  },
         { year: '2023 — 2024', title: 'Bénévolat — Linkee Paris',             sub: 'Coordination logistique, aide sociale',   type: 'warn'  },
         { year: '2023 → …',   title: 'Service Client & Accueil',             sub: 'Subway / City One, Paris',                type: 'tech'  },
